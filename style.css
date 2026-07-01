@@ -1,0 +1,392 @@
+/* ==========================================================================
+   1. COLOR CONFIGURATION (यहाँ से आप मनचाहा कलर बदल सकते हैं)
+   ========================================================================== */
+:root {
+    /* ----------------------------------------------------------------------
+       PRESET A: CLASSIC BOOTSTRAP BLUE (ज़्यादातर Replit प्रोजेक्ट्स में यही होता है)
+       ---------------------------------------------------------------------- */
+    --primary-color: #0d6efd;       /* मुख्य नीला रंग (बटन और हाइलाइट्स के लिए) */
+    --primary-hover: #0b5ed7;       /* बटन पर होवर करने का रंग */
+    --bg-header: #212529;           /* हेडर का डार्क बैकग्राउंड */
+    --bg-editor: #f8f9fa;           /* लेफ्ट फॉर्म पैनल का बैकग्राउंड */
+    --bg-preview: #e9ecef;          /* राइट रिज्यूमे पैनल का बैकग्राउंड */
+    --card-bg: #ffffff;             /* फॉर्म कार्ड्स का बैकग्राउंड */
+    --text-color: #212529;          /* टेक्स्ट का रंग */
+    --border-color: #dee2e6;        /* बॉर्डर का रंग */
+    
+    /* रिज्यूमे पेपर सेटिंग्स (प्रिंट होने वाला हिस्सा) */
+    --resume-font: 'Arial', sans-serif;
+    --resume-header-color: #212529;
+    --resume-accent-color: #0d6efd; /* रिज्यूमे के अंदर हेडिंग्स का रंग */
+    
+    /* ----------------------------------------------------------------------
+       PRESET B: REPLIT NEON DARK THEME (यदि आपकी वेबसाइट डार्क मोड में थी)
+       (इन्हें इस्तेमाल करने के लिए नीचे दिए गए कोड्स को ऊपर कॉपी कर लें)
+       --primary-color: #00e676;     (Neon Green)
+       --bg-header: #121824;
+       --bg-editor: #1c2333;
+       --card-bg: #242f41;
+       --text-color: #f8fafc;
+       ---------------------------------------------------------------------- */
+}
+
+/* ==========================================================================
+   2. GLOBAL STYLES & RESET
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-preview);
+    color: var(--text-color);
+    overflow: hidden;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+/* ==========================================================================
+   3. APP HEADER
+   ========================================================================== */
+header {
+    background-color: var(--bg-header);
+    color: #ffffff;
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo i {
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   4. LAYOUT GRID
+   ========================================================================== */
+.container {
+    display: grid;
+    grid-template-columns: 480px 1fr;
+    height: calc(100vh - 60px);
+}
+
+/* ==========================================================================
+   5. LEFT FORM PANEL
+   ========================================================================== */
+.editor-pane {
+    background-color: var(--bg-editor);
+    padding: 1.5rem;
+    overflow-y: auto;
+    border-right: 1px solid var(--border-color);
+}
+
+.section-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.section-card h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.section-card h3 i {
+    color: var(--primary-color);
+}
+
+/* Input Styles */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #495057;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    background-color: #ffffff;
+    color: #212529;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+}
+
+/* Dynamic Add/Remove Items */
+.dynamic-item {
+    border: 1px solid var(--border-color);
+    background-color: #fdfdfd;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 0.75rem;
+}
+
+.dynamic-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.dynamic-item-header h4 {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+/* Buttons */
+.btn {
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: background-color 0.15s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    width: 100%;
+    padding: 0.4rem;
+    margin-top: 0.5rem;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+.btn-remove {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+}
+
+.btn-remove:hover {
+    color: #bd2130;
+}
+
+/* ==========================================================================
+   6. RIGHT PANEL: RESUME PREVIEW
+   ========================================================================== */
+.preview-pane {
+    background-color: var(--bg-preview);
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+}
+
+/* A4 Paper Styling */
+.resume-paper {
+    background-color: #ffffff;
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    font-family: var(--resume-font);
+    color: #333333;
+}
+
+.resume-header {
+    text-align: center;
+    border-bottom: 2px solid var(--resume-header-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.resume-header h1 {
+    font-size: 1.75rem;
+    color: var(--resume-header-color);
+    margin-bottom: 0.25rem;
+}
+
+.resume-header h2 {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: #666;
+    flex-wrap: wrap;
+}
+
+.contact-info span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Resume Sections */
+.resume-section {
+    margin-bottom: 1.25rem;
+}
+
+.section-title {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid #999;
+    padding-bottom: 2px;
+    margin-bottom: 0.5rem;
+    color: var(--resume-accent-color);
+    font-weight: bold;
+}
+
+.resume-item {
+    margin-bottom: 0.75rem;
+}
+
+.resume-item-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.resume-item-subheader {
+    display: flex;
+    justify-content: space-between;
+    font-style: italic;
+    font-size: 0.8rem;
+    color: #555;
+    margin-bottom: 0.25rem;
+}
+
+.resume-item p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    white-space: pre-line;
+}
+
+#pSkills {
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   7. RESPONSIVE LAYOUT
+   ========================================================================== */
+@media (max-width: 1024px) {
+    body {
+        overflow-y: auto;
+    }
+    .container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .editor-pane {
+        height: auto;
+        overflow-y: visible;
+    }
+    .preview-pane {
+        height: auto;
+        overflow-y: visible;
+        padding: 1rem;
+    }
+    .resume-paper {
+        width: 100%;
+        min-width: 210mm;
+    }
+}
+
+/* ==========================================================================
+   8. PRINT MEDIA (For PDF Export)
+   ========================================================================== */
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    body {
+        background: #ffffff !important;
+    }
+    .no-print, header, .editor-pane, .btn {
+        display: none !important;
+    }
+    .container {
+        display: block !important;
+        height: auto !important;
+    }
+    .preview-pane {
+        padding: 0 !important;
+        margin: 0 !important;
+        background: transparent !important;
+    }
+    .resume-paper {
+        box-shadow: none !important;
+        border: none !important;
+        width: 100% !important;
+        padding: 15mm !important;
+    }
+}

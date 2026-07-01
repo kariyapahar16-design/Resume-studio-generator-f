@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome icons के लिए -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+   
+</head>
+<body>
+
+     <script>
+  atOptions = {
+    'key' : '54ffa6101c0b73831a25d2671364cca5',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/54ffa6101c0b73831a25d2671364cca5/invoke.js"></script>
+    <!-- Header (केवल वेब पर दिखेगा, प्रिंट में नहीं) -->
+    <header class="no-print">
+        <div class="logo">
+            <i class="fa-solid fa-file-invoice"></i> Resume Builder
+        </div>
+        <button id="printBtn" class="btn btn-primary">
+            <i class="fa-solid fa-download"></i> Download PDF
+        </button>
+    </header>
+
+    <div class="container">
+        
+        <!-- Left Pane: Inputs (No Print) -->
+        <div class="editor-pane no-print">
+            
+            <!-- Personal Details -->
+            <div class="section-card">
+                <h3><i class="fa-solid fa-user"></i> Personal Details</h3>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="jobTitle">Job Title</label>
+                    <input type="text" id="jobTitle" placeholder="Software Engineer">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="johndoe@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" placeholder="+1 (555) 123-4567">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" placeholder="San Francisco, CA">
+                    </div>
+                    <div class="form-group">
+                        <label for="website">Website / Portfolio</label>
+                        <input type="text" id="website" placeholder="portfolio.com">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="summary">Professional Summary</label>
+                    <textarea id="summary" rows="4" placeholder="Write a brief professional summary..."></textarea>
+                </div>
+            </div>
+
+            <!-- Work Experience -->
+            <div class="section-card">
+                <h3><i class="fa-solid fa-briefcase"></i> Work Experience</h3>
+                <div id="experienceList" class="dynamic-list">
+                    <!-- Dynamic Experience Forms go here -->
+                </div>
+                <button type="button" class="btn btn-secondary" id="addExperienceBtn">
+                    <i class="fa-solid fa-plus"></i> Add Job
+                </button>
+            </div>
+
+            <!-- Projects -->
+            <div class="section-card">
+                <h3><i class="fa-solid fa-code"></i> Projects</h3>
+                <div id="projectList" class="dynamic-list">
+                    <!-- Dynamic Projects go here -->
+                </div>
+                <button type="button" class="btn btn-secondary" id="addProjectBtn">
+                    <i class="fa-solid fa-plus"></i> Add Project
+                </button>
+            </div>
+
+            <!-- Education -->
+            <div class="section-card">
+                <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+                <div id="educationList" class="dynamic-list">
+                    <!-- Dynamic Education go here -->
+                </div>
+                <button type="button" class="btn btn-secondary" id="addEducationBtn">
+                    <i class="fa-solid fa-plus"></i> Add Education
+                </button>
+            </div>
+
+            <!-- Skills -->
+            <div class="section-card">
+                <h3><i class="fa-solid fa-gear"></i> Technical Skills</h3>
+                <div class="form-group">
+                    <label for="skills">Skills (comma-separated)</label>
+                    <input type="text" id="skills" placeholder="JavaScript, React, Node.js, Python, SQL, Git">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Right Pane: Live Resume Preview (यह प्रिंट होगा) -->
+        <div class="preview-pane">
+            <div class="resume-paper" id="resumePaper">
+                
+                <div class="resume-header">
+                    <h1 id="pName">John Doe</h1>
+                    <h2 id="pTitle">Software Engineer</h2>
+                    <div class="contact-info">
+                        <span id="pLocation"><i class="fa-solid fa-location-dot"></i> <span class="val"></span></span>
+                        <span id="pPhone"><i class="fa-solid fa-phone"></i> <span class="val"></span></span>
+                        <span id="pEmail"><i class="fa-solid fa-envelope"></i> <span class="val"></span></span>
+                        <span id="pWebsite"><i class="fa-solid fa-globe"></i> <span class="val"></span></span>
+                    </div>
+                </div>
+
+                <div class="resume-body">
+                    
+                    <div class="resume-section" id="pSummarySection">
+                        <h3 class="section-title">Summary</h3>
+                        <p id="pSummary"></p>
+                    </div>
+
+                    <div class="resume-section" id="pExperienceSection">
+                        <h3 class="section-title">Work Experience</h3>
+                        <div id="pExperienceList"></div>
+                    </div>
+
+                    <div class="resume-section" id="pProjectsSection">
+                        <h3 class="section-title">Projects</h3>
+                        <div id="pProjectsList"></div>
+                    </div>
+
+                    <div class="resume-section" id="pEducationSection">
+                        <h3 class="section-title">Education</h3>
+                        <div id="pEducationList"></div>
+                    </div>
+
+                    <div class="resume-section" id="pSkillsSection">
+                        <h3 class="section-title">Skills</h3>
+                        <p id="pSkills"></p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <script>
+  atOptions = {
+    'key' : '54ffa6101c0b73831a25d2671364cca5',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/54ffa6101c0b73831a25d2671364cca5/invoke.js"></script>
+ 
+<script async="async" data-cfasync="false" src="https://pl29601486.effectivecpmnetwork.com/16744590e5745e39d8225c5c618d56fe/invoke.js"></script>
+<div id="container-16744590e5745e39d8225c5c618d56fe"></div>
+  <script src="script.js"></script>
+</body>
+</html>
